@@ -6,6 +6,13 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+
+
+# CONTACT PAGE
+@app.route('/api/v1/contact')
+def contact():
+    return render_template('contact.html')
+
 # DASHBOARD
 @app.route('/api/v1/dashboard')
 def dashboard():
