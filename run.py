@@ -25,7 +25,7 @@ def dashboard():
 # REGISTER
 @app.route('/api/v1/adduser')
 def addUsers():
-    return 'Register page'
+    return render_template('register.html')
 
 # LOGIN
 @app.route('/api/v1/user')
