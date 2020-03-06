@@ -1,10 +1,10 @@
-from flask import Flask
+from flask import Flask,render_template
 app = Flask(__name__)
 
 # HOME PAGE
 @app.route('/api/v1')
 def index():
-    return 'Index page'
+    return render_template('index.html')
 
 # DASHBOARD
 @app.route('/api/v1/dashboard')
