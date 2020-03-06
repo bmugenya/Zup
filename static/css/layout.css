@@ -34,3 +34,48 @@
   color:white;
 
 }
+
+
+
+
+.contact h3{
+    font-size:3em;
+    color: #000;
+  font-family: 'Montserrat-Regular';
+    text-align: center;
+}
+.contact h3:after,.contact h3:before{
+    width: 200px;
+    height: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    content:"";
+    background:#000;
+    margin: 0 1%;
+}
+.contact-right input[type="text"], .contact-right textarea {
+  padding: 0.8em 1em;
+  font-size: 0.85em;
+  margin:0 0 0.8em;
+  border: 1px solid #eee;
+  color: #a3a3a3;
+  background: none;
+  outline: none;
+  width: 100%;
+  -webkit-appearance: none;
+}
+.contact-right textarea{
+    height:150px;
+    resize:none;
+}
+.contact-right input[type="submit"] {
+  -webkit-appearance: none;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: 0.9em;
+  padding: 0.5em 1em;
+  width:100%;
+  background: none;
+}
+
