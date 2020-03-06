@@ -36,15 +36,13 @@
 }
 
 
-
-
-.contact h3{
+.contact h3,.about h3{
     font-size:3em;
     color: #000;
   font-family: 'Montserrat-Regular';
     text-align: center;
 }
-.contact h3:after,.contact h3:before{
+.contact h3:after,.contact h3:before,.about h3:after,.about h3:before{
     width: 200px;
     height: 1px;
     display: inline-block;
