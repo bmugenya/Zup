@@ -30,7 +30,7 @@ def addUsers():
 # LOGIN
 @app.route('/api/v1/user')
 def users():
-    return 'Login page'
+    return render_template('login.html')
 
 # CONFIGURATION
 @app.route('/api/v1/config')
