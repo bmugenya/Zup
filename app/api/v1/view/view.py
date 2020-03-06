@@ -1,16 +1,47 @@
-from flask import Flask,render_template,Blueprint,Response
+import os
+from flask import Flask,render_template,Blueprint,Response,redirect,url_for,request,current_app
 from flask_restful import Resource
 from ..model.model import Model
+from werkzeug.utils import secure_filename
 
 api = Blueprint('api', __name__)
 
-# HOME PAGE
-class index(Resource,Model):
+# REGISTER
+class addUsers(Resource,Model):
     def __init__(self):
-        self.model = Model()
+        self.user = Model()
+
+    def allowed_file(filename):
+        return '.' in filename and \
+        filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
     def get(self):
-        return Response(render_template('index.html'))
+        return Response(render_template('register.html'))
+
+
+    def post(self):
+        file = request.files['file']
+        if file:
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+            photo=filename
+
+
+        fname = request.form['fname']
+        lname = request.form['lname']
+        email=request.form['email']
+        password=request.form['pword']
+
+        is_present = self.user.check_email(email)
+
+        if is_present:
+            return redirect(url_for('api_v1.addusers'))
+
+        self.user.save_users(fname,lname,email,password,photo)
+
+        return redirect(url_for('api_v1.index'))
+
+
 
 
 # CONTACT PAGE
@@ -42,22 +73,33 @@ class dashboard(Resource,Model):
 
 
 
-# REGISTER
-class addUsers(Resource,Model):
+# HOMEPAGE
+class index(Resource,Model):
     def __init__(self):
         self.model = Model()
 
     def get(self):
-        return Response(render_template('register.html'))
+        return Response(render_template('index.html'))
 
 
 # LOGIN PAGE
 class users(Resource,Model):
     def __init__(self):
-        self.model = Model()
+        self.user = Model()
 
     def get(self):
         return Response(render_template('login.html'))
+
+    def post(self):
+        email = request.form['email']
+        password = request.form['pword']
+
+        user = self.user.login(email,password)
+
+
+        if user:
+           return redirect(url_for('api_v1.index'))
+        return redirect(url_for('api_v1.addusers'))
 
 # CONFIGURATION
 class config(Resource,Model):
