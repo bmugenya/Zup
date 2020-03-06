@@ -1,0 +1,36 @@
+/* HEIGHT OF CAROSEL*/
+
+
+.item img{
+    width:100%;
+    height:60vh;
+}
+
+
+.navbar{
+    margin-bottom: 0px;
+}
+
+.icon-right{
+  position: absolute;
+  top:50px;
+  right:15%;
+
+
+}
+
+.icon-left h1{
+
+    text-transform: uppercase;
+  text-align: left;
+
+}
+
+.icon-left{
+    width:30%;
+  position: absolute;
+  top:40px;
+  left:15%;
+  color:white;
+
+}
