@@ -1,0 +1,79 @@
+/* HEIGHT OF CAROSEL*/
+
+
+.item img{
+    width:100%;
+    height:60vh;
+}
+
+
+.navbar{
+    margin-bottom: 0px;
+}
+
+.icon-right{
+  position: absolute;
+  top:50px;
+  right:15%;
+
+
+}
+
+.icon-left h1{
+
+    text-transform: uppercase;
+  text-align: left;
+
+}
+
+.icon-left{
+    width:30%;
+  position: absolute;
+  top:40px;
+  left:15%;
+  color:white;
+
+}
+
+
+.contact h3,.about h3{
+    font-size:3em;
+    color: #000;
+  font-family: 'Montserrat-Regular';
+    text-align: center;
+}
+.contact h3:after,.contact h3:before,.about h3:after,.about h3:before{
+    width: 200px;
+    height: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    content:"";
+    background:#000;
+    margin: 0 1%;
+}
+.contact-right input[type="text"],.contact-right input[type="email"],.contact-right input[type="password"], .contact-right textarea {
+  padding: 0.8em 1em;
+  font-size: 0.85em;
+  margin:0 0 0.8em;
+  border: 1px solid #eee;
+  color: #a3a3a3;
+  background: none;
+  outline: none;
+  width: 100%;
+  -webkit-appearance: none;
+}
+.contact-right textarea{
+    height:150px;
+    resize:none;
+}
+.contact-right input[type="submit"],.contact-right input[type="reset"] {
+  -webkit-appearance: none;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: 0.9em;
+  padding: 0.5em 1em;
+  width:100%;
+  background: none;
+}
+

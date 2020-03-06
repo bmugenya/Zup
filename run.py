@@ -1,10 +1,21 @@
-from flask import Flask
+from flask import Flask,render_template
 app = Flask(__name__)
 
 # HOME PAGE
 @app.route('/api/v1')
 def index():
-    return 'Index page'
+    return render_template('index.html')
+
+# CONTACT PAGE
+@app.route('/api/v1/contact')
+def contact():
+    return render_template('contact.html')
+
+
+# About PAGE
+@app.route('/api/v1/about')
+def about():
+    return render_template('about.html')
 
 # DASHBOARD
 @app.route('/api/v1/dashboard')
@@ -14,12 +25,12 @@ def dashboard():
 # REGISTER
 @app.route('/api/v1/adduser')
 def addUsers():
-    return 'Register page'
+    return render_template('register.html')
 
 # LOGIN
 @app.route('/api/v1/user')
 def users():
-    return 'Login page'
+    return render_template('login.html')
 
 # CONFIGURATION
 @app.route('/api/v1/config')

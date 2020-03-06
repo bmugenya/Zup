@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+{% block content %}
+
+
+<!--contact-->
+<div class="contact">
+    <div class="container">
+        <h3>Register</h3>
+
+
+        <div class="col-md-6 contact-right">
+            <form>
+              <input type ="file" name="file">
+              <input type = "text" name = "fName" placeholder="First Name" required/><br />
+              <input type = "text" name = "lName" placeholder="Last Name" required/><br />
+              <input type = "email" name = "email" placeholder="Email" required/><br />
+              <input type = "password" name = "pass" placeholder="Password" required/><br />
+
+
+
+                    <input class="col-sm-6" type ="submit" value="send"/>
+                <input class="col-sm-6" type ="reset" value="reset"/>
+
+
+            </form>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+{% endblock %}
