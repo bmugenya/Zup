@@ -18,23 +18,6 @@
 
   </head>
   <body>
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="{{ url_for('api_v1.index') }}">TweetAnalysis</a>
-        </div>
-        <ul class="nav navbar-nav">
-          <li><a href="{{ url_for('api_v1.about') }}">About</a></li>
-          <li><a href="{{ url_for('api_v1.contact') }}">Contact</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="{{ url_for('api_v1.addusers') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="{{ url_for('api_v1.users') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
-      </div>
-    </nav>
-
-
 
   {% block content %}{% endblock %}
 
@@ -67,55 +50,31 @@
 
           </div>
 
-          <div class="col-md-2">
+          <div class="col-md-4">
 
             <!-- Links -->
             <h6 class="text-uppercase font-weight-bold">Modules</h6>
             <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-            <p>
-              <a href="#!">Analysis Module</a>
-            </p>
+
             <p>
               <a href="#!">User Module</a>
             </p>
             <p>
               <a href="#!">Configuration Module</a>
             </p>
-            <p>
-              <a href="#!">Login Module</a>
+                 <p>
+              <a href="#!">Analysis Module</a>
             </p>
-                        <p>
-              <a href="#!">History Module</a>
-            </p>
+
 
 
           </div>
 
-          <!-- Grid column -->
-          <div class="col-md-3">
-
-            <!-- Links -->
-            <h6 class="text-uppercase font-weight-bold">Project links</h6>
-            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-            <p>
-              <a href="#!">Home</a>
-            </p>
-            <p>
-              <a href="#!">About Us</a>
-            </p>
-            <p>
-              <a href="#!">Contact</a>
-            </p>
-            <p>
-              <a href="#!">Login</a>
-            </p>
-
-          </div>
           <!-- Grid column -->
 
 
     <!-- Grid column -->
-          <div class="col-md-3">
+          <div class="col-md-4">
             <!-- Content -->
             <h6 class="text-uppercase font-weight-bold">Company name</h6>
             <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
