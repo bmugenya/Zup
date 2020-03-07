@@ -32,7 +32,7 @@ class Model():
 
         if pwd:
             if pwd_context.verify(password, pwd[0]):
-                query = "SELECT name,email,photo FROM Users WHERE email = '%s';" % (email)
+                query = "SELECT fname,lname,email,photo FROM Users WHERE email = '%s';" % (email)
                 self.cursor.execute(query)
                 users = self.cursor.fetchone()
 
@@ -44,6 +44,14 @@ class Model():
         users = self.cursor.fetchone()
 
         return users
+
+    def get_user(self,email):
+        query = "SELECT fname,lname,photo,user_id FROM Users WHERE email = '%s';" % (email)
+        self.cursor.execute(query)
+        users = self.cursor.fetchone()
+
+        return users
+
 
 
 
