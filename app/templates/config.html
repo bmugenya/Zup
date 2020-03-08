@@ -2,26 +2,24 @@
 {% block content %}
 
 
-
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="{{ url_for('api_v1.index') }}">TweetAnalysis</a>
         </div>
-           <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav">
             {% if email %}
             <li class="dropdown" data-toggle="dropdown"><a>
             <span class="caret"></span> Administrator</a></li>
             <ul class="dropdown-menu">
                 <li><a href="{{ url_for('api_v1.config') }}">Configuration</a></li>
                 <li><a href="{{ url_for('api_v1.analysis') }}">Start Analysis</a></li>
-                <li><a href="{{ url_for('api_v1.details') }}">Review Analysis</a></li>
+                <li><a href="{{ url_for('api_v1.reports') }}">Review Analysis</a></li>
             </ul>
             {% endif %}
             <li><a href="{{ url_for('api_v1.about') }}">About</a></li>
             <li><a href="{{ url_for('api_v1.contact') }}">Contact</a></li>
         </ul>
-
         <ul class="nav navbar-nav navbar-right">
             {% if email %}
             <li><a>{{ email }}</a></li>
@@ -35,16 +33,22 @@
     </div>
 </nav>
 
+
 <!--contact-->
 <div class="contact">
     <div class="container">
-        <h3>Login</h3>
+        <h3>Configuration</h3>
 
 
         <div class="col-md-6 contact-right">
             <form action="{{ url_for('api_v1.users') }}" method="post">
-               <input type="email"  name="email" placeholder="Email" required>
-               <input type="password" name="pword" placeholder="Password" required>
+               <input type="text"  name="email" placeholder="Consumer Key" required>
+               <input type="text" name="pword" placeholder="Consumer Secret" required>
+                <input type="text"  name="email" placeholder="Consumer Access Token" required>
+               <input type="text" name="pword" placeholder="Consumer Token Secret" required>
+
+
+
                <label class="hvr-sweep-to-right">
                <input type="submit" value="Submit">
                </label>

@@ -2,7 +2,6 @@
 {% block content %}
 
 
-
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -15,7 +14,7 @@
             <ul class="dropdown-menu">
                 <li><a href="{{ url_for('api_v1.config') }}">Configuration</a></li>
                 <li><a href="{{ url_for('api_v1.analysis') }}">Start Analysis</a></li>
-                <li><a href="{{ url_for('api_v1.details') }}">Review Analysis</a></li>
+                <li><a href="{{ url_for('api_v1.reports') }}">Review Analysis</a></li>
             </ul>
             {% endif %}
             <li><a href="{{ url_for('api_v1.about') }}">About</a></li>
@@ -35,21 +34,5 @@
     </div>
 </nav>
 
-<!--contact-->
-<div class="contact">
-    <div class="container">
-        <h3>Login</h3>
-
-
-        <div class="col-md-6 contact-right">
-            <form action="{{ url_for('api_v1.users') }}" method="post">
-               <input type="email"  name="email" placeholder="Email" required>
-               <input type="password" name="pword" placeholder="Password" required>
-               <label class="hvr-sweep-to-right">
-               <input type="submit" value="Submit">
-               </label>
-            </form>
-        </div>
-        <div class="clearfix"> </div>
-    </div>
+<br />
 {% endblock %}

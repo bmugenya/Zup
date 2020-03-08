@@ -2,7 +2,6 @@
 {% block content %}
 
 
-
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -15,7 +14,7 @@
             <ul class="dropdown-menu">
                 <li><a href="{{ url_for('api_v1.config') }}">Configuration</a></li>
                 <li><a href="{{ url_for('api_v1.analysis') }}">Start Analysis</a></li>
-                <li><a href="{{ url_for('api_v1.details') }}">Review Analysis</a></li>
+                <li><a href="{{ url_for('api_v1.reports') }}">Review Analysis</a></li>
             </ul>
             {% endif %}
             <li><a href="{{ url_for('api_v1.about') }}">About</a></li>
@@ -35,21 +34,45 @@
     </div>
 </nav>
 
-<!--contact-->
-<div class="contact">
-    <div class="container">
-        <h3>Login</h3>
+<br />
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Topic Name</th>
+                    <th>Total Tweets</th>
+                    <th>Analysis Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <th>1</th>
+            <th>science</th>
+            <th>200 Tweets</th>
+            <th>8 Feburary 2020</th>
+            <th>
 
+               <a href="{{ url_for('api_v1.report',report_id=1) }}">
+                 <button class="btn-success">View</button></a>
+                <button class="btn-danger">Delete</button>
+            </th>
+            </tr>
+                        <tr>
+            <th>1</th>
+            <th>science</th>
+            <th>200 Tweets</th>
+            <th>8 Feburary 2020</th>
+            <th>
+                <button class="btn-success">View</button>
+                <button class="btn-danger">Delete</button>
+            </th>
+            </tr>
 
-        <div class="col-md-6 contact-right">
-            <form action="{{ url_for('api_v1.users') }}" method="post">
-               <input type="email"  name="email" placeholder="Email" required>
-               <input type="password" name="pword" placeholder="Password" required>
-               <label class="hvr-sweep-to-right">
-               <input type="submit" value="Submit">
-               </label>
-            </form>
-        </div>
-        <div class="clearfix"> </div>
+            </tbody>
+        </table>
     </div>
+</div>
 {% endblock %}

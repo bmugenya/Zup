@@ -1,21 +1,54 @@
 {% extends "main.html" %}
 {% block content %}
-     <div class="row">
-        <div id="myCarousel" class="carousel slide min" data-ride="carousel">
-        <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <img src="/static/img/slide1.jpg"/>
-                     <img class="icon-right" style="height:150px;width:150px" src="/static/img/tweet.png"/>
-                     <div class="icon-left carousel-item"><h1>Sentiment analysis of twitter <br />data</h1>
-                        <h4>Perform sentiment analysis of twitter data</h4><br />
-                        <button class="btn-lg btn-primary">Read more</button>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{{ url_for('api_v1.index') }}">TweetAnalysis</a>
+        </div>
+        <ul class="nav navbar-nav">
+            {% if email %}
+            <li class="dropdown" data-toggle="dropdown"><a>
+            <span class="caret"></span> Administrator</a></li>
+            <ul class="dropdown-menu">
+                <li><a href="{{ url_for('api_v1.config') }}">Configuration</a></li>
+                <li><a href="{{ url_for('api_v1.analysis') }}">Start Analysis</a></li>
+                <li><a href="{{ url_for('api_v1.reports') }}">Review Analysis</a></li>
+            </ul>
+            {% endif %}
+            <li><a href="{{ url_for('api_v1.about') }}">About</a></li>
+            <li><a href="{{ url_for('api_v1.contact') }}">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            {% if email %}
+            <li><a>{{ email }}</a></li>
+            <li><a onclick="logout.submit()"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+            <form id="logout" action="{{ url_for('api_v1.logout') }}" method="post"></form>
+            {% else %}
+            <li><a href="{{ url_for('api_v1.addusers') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="{{ url_for('api_v1.users') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+<div class="row">
+    <div id="myCarousel" class="carousel slide min" data-ride="carousel">
+    <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="/static/img/slide1.jpg"/>
+                <img class="icon-right" style="height:150px;width:150px" src="/static/img/tweet.png"/>
+                <div class="icon-left carousel-item"><h1>Sentiment analysis of twitter <br />data</h1>
+                    <h4>Perform sentiment analysis of twitter data</h4><br />
+                    <a href="{{ url_for('api_v1.about') }}">
+                        <button class="btn-lg btn-primary">Read more</button></a>
                 </div>
             </div>
 
@@ -24,7 +57,8 @@
                     <img class="icon-right" style="height:150px;width:150px" src="/static/img/hashtag.png"/>
                             <div class="icon-left"><h1>Sentiment analysis of twitter <br />data</h1>
                         <h4>Perform sentiment analysis of twitter data</h4><br />
-                        <button class="btn-lg btn-primary">Read more</button>
+                       <a href="{{ url_for('api_v1.about') }}">
+                        <button class="btn-lg btn-primary">Read more</button></a>
                 </div>
                 </div>
 
@@ -33,7 +67,8 @@
                      <img class="icon-right" style="height:150px;width:150px" src="/static/img/tweet.png"/>
                         <div class="icon-left"><h1>Sentiment analysis of twitter<br /> data</h1>
                         <h4>Perform sentiment analysis of twitter data</h4><br />
-                        <button class="btn-lg btn-primary">Read more</button>
+                        <a href="{{ url_for('api_v1.about') }}">
+                        <button class="btn-lg btn-primary">Read more</button></a>
                 </div>
                 </div>
             </div>

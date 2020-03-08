@@ -7,13 +7,14 @@ Twitter Sentiment Analysis
 Method | Endpoint | Function |
 | ------ | -------------| --------------- |
 |GET| . |   .   |
-|GET| `/api/v1` | Show Homepage. |
-|GET| `/api/v1/dashboard` | List of the available functionality. |
-|GET| `/api/v1/details` | Page to view analysis.|
-|GET| `/api/v1/history` | Page to view previous analysis.|
-|GET| `/api/v1/report` | Page to view registered users.|
+|GET| `/api/v1/` | Show Homepage. |
+|GET| `/api/v1/about` | About Page.|
+|GET| `/api/v1/report/report_id` | Specific Analysis.|
+|GET| `/api/v1/reports` | All Analysis.|
 |POST| . |   .   |
-|POST| `/api/v1/adduser` | Page With Registration Function. |
-|POST| `/api/v1/user` | Page With Login Function. |
+|POST| `/api/v1/contact` | Contact Page.|
+|POST| `/api/v1/adduser` | Registration Page. |
+|POST| `/api/v1/user` | Login Page. |
+|POST| `/api/v1/logout` | Logout Page. |
 |POST| `/api/v1/config` | Twitter configuration setting.|
-|POST| `/api/v1/analysis` | Form to start specified analysis.|
+|POST| `/api/v1/analysis` | Start data Analysis.|

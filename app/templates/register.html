@@ -2,6 +2,38 @@
 {% block content %}
 
 
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{{ url_for('api_v1.index') }}">TweetAnalysis</a>
+        </div>
+           <ul class="nav navbar-nav">
+            {% if email %}
+            <li class="dropdown" data-toggle="dropdown"><a>
+            <span class="caret"></span> Administrator</a></li>
+            <ul class="dropdown-menu">
+                <li><a href="{{ url_for('api_v1.config') }}">Configuration</a></li>
+                <li><a href="{{ url_for('api_v1.analysis') }}">Start Analysis</a></li>
+                <li><a href="{{ url_for('api_v1.details') }}">Review Analysis</a></li>
+            </ul>
+            {% endif %}
+            <li><a href="{{ url_for('api_v1.about') }}">About</a></li>
+            <li><a href="{{ url_for('api_v1.contact') }}">Contact</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            {% if email %}
+            <li><a>{{ email }}</a></li>
+            <li><a onclick="logout.submit()"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+            <form id="logout" action="{{ url_for('api_v1.logout') }}" method="post"></form>
+            {% else %}
+            <li><a href="{{ url_for('api_v1.addusers') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="{{ url_for('api_v1.users') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
 <!--contact-->
 <div class="contact">
     <div class="container">
