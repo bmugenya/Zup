@@ -22,3 +22,4 @@ api.add_resource(reports, "/reports")
 api.add_resource(report, "/report/<int:report_id>")
 api.add_resource(logout, "/logout")
 
+

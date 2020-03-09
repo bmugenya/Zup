@@ -41,13 +41,11 @@
 
 
         <div class="col-md-6 contact-right">
-            <form action="{{ url_for('api_v1.users') }}" method="post">
-               <input type="text"  name="email" placeholder="Twitter Topic" required>
-               <input type="text" name="pword" placeholder="No. of Tweets" required>
-                <input type="text"  name="email" placeholder="Date" required>
-               <textarea name="pword" placeholder="Description" required></textarea>
-
-
+            <form action="{{ url_for('api_v1.analysis') }}" method="post">
+               <input type="text"  name="topic" placeholder="Twitter Topic" required>
+               <input type="number" name="no" placeholder="No. of Tweets" required>
+                <input type="date"  name="date" placeholder="Date">
+               <textarea name="des" placeholder="Description"></textarea>
 
                <label class="hvr-sweep-to-right">
                <input type="submit" value="Submit">

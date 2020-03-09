@@ -34,5 +34,24 @@
     </div>
 </nav>
 
+<div class="container">
+    <div class="row"><br />
+
+
+        {% for tweet in tweets %}
+      <div class="list-group">
+         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+           <div class="d-flex w-100 justify-content-between">
+             <img src="{{tweet.headshot_url}}" class="w-12 p-1 float-left image-thumbnail">
+             <h5 class="ml-10 w-75 mb-1">{{ tweet.tweet }}</h5>
+             <small>{{ tweet.created_at }}</small>
+           </div>
+         </a>
+      </div>
+      {% endfor %}
+
+
+</div>
+</div>
 <br />
 {% endblock %}
