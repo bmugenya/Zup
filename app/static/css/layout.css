@@ -51,7 +51,7 @@
     background:#000;
     margin: 0 1%;
 }
-.contact-right input[type="text"],.contact-right input[type="email"],.contact-right input[type="password"], .contact-right textarea {
+.contact-right input[type="text"],.contact-right input[type="number"],.contact-right input[type="date"],.contact-right input[type="email"],.contact-right input[type="password"], .contact-right textarea {
   padding: 0.8em 1em;
   font-size: 0.85em;
   margin:0 0 0.8em;
