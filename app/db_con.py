@@ -1,6 +1,6 @@
 import psycopg2
 
-url = "dbname='tweet' user='postgres' host='localhost' port=5432 password='Boywonder47'"
+url = "dbname='da43n1slakcjkc' user='msqgxzgmcskvst' host='ec2-54-80-184-43.compute-1.amazonaws.com' port=5432 password='9281f925b1e2298e8d62812d9d4e430c1054db62e918c282d7039fa85b1759fa'"
 
 class database_setup(object):
 
