@@ -48,28 +48,25 @@
                 </tr>
             </thead>
             <tbody>
+
+            {% for report in reports %}
             <tr>
-            <th>1</th>
-            <th>science</th>
-            <th>200 Tweets</th>
-            <th>8 Feburary 2020</th>
+            <th>{{ report[0] }} </th>
+            <th>{{ report[1] }} </th>
+            <th>{{ report[2] }} Tweets</th>
+            <th>{{ report[5] }} </th>
             <th>
 
                <a href="{{ url_for('api_v1.report',report_id=1) }}">
                  <button class="btn-success">View</button></a>
-                <button class="btn-danger">Delete</button>
+                  <form  method="post" action="{{url_for('api_v1.remove',report_id=report[0])}}">
+                 <button type="submit" class="btn-danger">Delete</button>
+            </form>
+
+
             </th>
             </tr>
-                        <tr>
-            <th>1</th>
-            <th>science</th>
-            <th>200 Tweets</th>
-            <th>8 Feburary 2020</th>
-            <th>
-                <button class="btn-success">View</button>
-                <button class="btn-danger">Delete</button>
-            </th>
-            </tr>
+            {% endfor %}
 
             </tbody>
         </table>

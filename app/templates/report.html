@@ -34,5 +34,24 @@
     </div>
 </nav>
 
+<div class="container">
+    <div class="row">
+
+ {% for tweet in report %}
+     <img src="/static/img/plot/{{ tweet[3] }}.png" style="width:80%;height=300px;" alt="my plot">
+</div>
+<br />
+<div class="row">
+
+    <img src="/static/img/plot/{{ tweet[4] }}.png" style="width:80%;height=400px;">
+</div>
+
+  {% endfor %}
+
+
+
+
+</div>
+</div>
 <br />
 {% endblock %}
