@@ -35,20 +35,20 @@
 </nav>
 
 <div class="container">
-    <div class="row"><br />
+    <div class="row">
+
+ {% for tweet in report %}
+     <img src="/static/img/plot/{{ tweet[3] }}.png" style="width:80%;height=300px;" alt="my plot">
+</div>
+<br />
+<div class="row">
+
+    <img src="/static/img/plot/{{ tweet[4] }}.png" style="width:80%;height=400px;">
+</div>
+
+  {% endfor %}
 
 
-        {% for tweet in tweets %}
-      <div class="list-group">
-         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-           <div class="d-flex w-100 justify-content-between">
-             <img src="{{tweet.headshot_url}}" class="w-12 p-1 float-left image-thumbnail">
-             <h5 class="ml-10 w-75 mb-1">{{ tweet.tweet }}</h5>
-             <small>{{ tweet.created_at }}</small>
-           </div>
-         </a>
-      </div>
-      {% endfor %}
 
 
 </div>
