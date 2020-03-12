@@ -23,7 +23,7 @@
         <ul class="nav navbar-nav navbar-right">
             {% if email %}
             <li><a>{{ email }}</a></li>
-            <li><a onclick="logout.submit()"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+            <li><a onclick="logout.submit()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             <form id="logout" action="{{ url_for('api_v1.logout') }}" method="post"></form>
             {% else %}
             <li><a href="{{ url_for('api_v1.addusers') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

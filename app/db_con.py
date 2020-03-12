@@ -38,4 +38,14 @@ class database_setup(object):
             );""")
 
 
+        self.cursor.execute("""CREATE TABLE IF NOT EXISTS Config (
+            config_id SERIAL NOT NULL,
+            consumerKey TEXT NOT NULL,
+            consumerSecret TEXT NOT NULL,
+            accessToken TEXT NOT NULL,
+            accessSecret TEXT NOT NULL,
+            email VARCHAR(50) REFERENCES Users(email) NOT NULL,
+            PRIMARY KEY (config_id)
+            );""")
+
         self.conn.commit()

@@ -27,11 +27,9 @@ class Twitter():
         self.twitter_user = None
 
 
-
-
     def authenticate_twitter_app(self):
-        auth = OAuthHandler('a4eoZrfLDcN7Iyyv9fpSaDO8w', 'oxhkG0o8Y6epVKRPavt2gXTxk3pnzOSFgg38sjdQ6DRAC2B7gy')
-        auth.set_access_token('1005899876742377474-2VFZ3XR2PNZDwXVX6IHcGnSbcrFhah', 'DbLRrvdifUrKMELrjR5HlwTbtUMBw4IgYPV1MtP5505jm')
+        auth = OAuthHandler('r7fHaRwhccxQXFuN9nmQCHYiI', 'T2A5Sxs1rHyx5P1HgFDnQ5VQd7tXPv0DEsFEYjLCojEsgJlThx')
+        auth.set_access_token('1005899876742377474-WuxZRYNt3dwEM62D4gCrnZEW6vtnKo', 'IBxDDAVK7ptPumqxeslnUR6TfLpVT1CpXBgQzEfXGNgnA')
         return auth
 
 
@@ -95,11 +93,13 @@ class Twitter():
         colors = ['yellowgreen','gold','red']
         patches,text = plt.pie(sizes,colors=colors,startangle=90)
         plt.legend(patches,labels,loc='best')
-        plt.title('How people are reacting on '+topic+' by analyzing '+str(num_tweets)+' Tweets.' )
+        plt.title('How people are reacting to '+topic+' by analyzing '+str(num_tweets)+' Tweets.' )
         plt.axis('equal')
         plt.tight_layout()
         pname = str(uuid.uuid4())
         plt.savefig('app/static/img/plot/'+pname+'.png')
+        plt.close('all')
+        plt.clf()
         return pname
 
 
@@ -112,13 +112,15 @@ class Twitter():
         y_pos = np.arange(len(label))
         results = [cent[0],cent[1],cent[2]]
 
-        plt.bar(y_pos,results,3,color=colors,align='center', alpha=0.5)
+        plt.bar(y_pos,results,color=colors,align='center', alpha=0.5)
         plt.xticks(y_pos,label)
         plt.ylabel('Percentage')
         plt.xlabel('Sentiment')
-        plt.title('How people are reacting on '+topic+' by analyzing '+str(num_tweets)+' Tweets.' )
+        plt.title('How people are reacting to '+topic+' by analyzing '+str(num_tweets)+' Tweets.' )
         bname = str(uuid.uuid4())
         plt.savefig('app/static/img/plot/'+bname+'.png')
+        plt.clf()
+
         return bname
 
 
@@ -140,14 +142,14 @@ class Twitter():
         return report
 
     def get_reports(self):
-        self.cursor.execute("SELECT * from report;")
+        self.cursor.execute("SELECT * from report ORDER BY report_id DESC;")
         query = self.cursor.fetchall()
 
         return query
 
 
     def get_report(self,report_id):
-        self.cursor.execute("SELECT * from report where report_id= '%s' ORDER BY report_id ASC;" % (report_id))
+        self.cursor.execute("SELECT * from report where report_id= '%s';" % (report_id))
         query = self.cursor.fetchall()
 
         return query
@@ -158,6 +160,22 @@ class Twitter():
 
         self.database.conn.commit()
 
+
+    def update_config(self,consumerKey,consumerSecret,accessToken,accessSecret,email):
+
+        report = {
+            "consumerKey": consumerKey,
+            "consumerSecret": consumerSecret,
+            "accessToken":  accessToken,
+            "accessSecret":accessSecret,
+            "email": email
+        }
+
+        query = "UPDATE Config SET consumerKey='%s',consumerSecret='%s',accessToken='%s',accessSecret='%s' WHERE email = '%s';" % (consumerKey,consumerSecret,accessToken,accessSecret,email)
+        self.cursor.execute(query, report)
+        self.database.conn.commit()
+
+        return report
 
 
 

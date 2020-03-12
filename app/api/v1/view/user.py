@@ -11,6 +11,7 @@ from flask_jwt_extended import (
 
 from flask_restful import Resource
 from ..model.model import Model
+from ..model.tweepy_streamer import Twitter
 from werkzeug.utils import secure_filename
 
 api = Blueprint('api', __name__)
@@ -47,6 +48,7 @@ class addUsers(Resource,Model):
             return redirect(url_for('api_v1.addusers'))
 
         self.user.save_users(fname,lname,email,password,photo)
+        self.user.add_config(email)
 
         return redirect(url_for('api_v1.index'))
 
@@ -89,13 +91,24 @@ class logout(Resource, Model):
 
 
 # CONFIGURATION
-class config(Resource,Model):
+class config(Resource,Twitter):
     def __init__(self):
-        self.model = Model()
+        self.tweet = Twitter()
 
     @jwt_optional
     def get(self):
         email = get_jwt_identity()
         return Response(render_template('config.html',email=email))
+
+    @jwt_optional
+    def post(self,report_id):
+        email = get_jwt_identity()
+        consumerKey = request.form['consumerKey']
+        consumerSecret = request.form['consumerSecret']
+        accessToken = request.form['accessToken']
+        accessSecret = request.form['accessSecret']
+        self.tweet.update_config(consumerKey,consumerSecret,accessToken,accessSecret,email)
+        return redirect(url_for('api_v1.analysis'))
+
 
 

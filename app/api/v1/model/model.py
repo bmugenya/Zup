@@ -27,6 +27,27 @@ class Model():
 
         return user
 
+    def add_config(self,email):
+
+        config = {
+            "consumerKey": "r7fHaRwhccxQXFuN9nmQCHYiI",
+            "consumerSecret": "T2A5Sxs1rHyx5P1HgFDnQ5VQd7tXPv0DEsFEYjLCojEsgJlThx",
+            "accessToken":  "1005899876742377474-WuxZRYNt3dwEM62D4gCrnZEW6vtnKo",
+            "accessSecret":"IBxDDAVK7ptPumqxeslnUR6TfLpVT1CpXBgQzEfXGNgnA",
+            "email": email
+        }
+
+        query = """INSERT INTO Config (consumerKey,consumerSecret,accessToken,accessSecret,email)
+            VALUES(%(consumerKey)s,%(consumerSecret)s,%(accessToken)s, %(accessSecret)s,%(email)s);"""
+        self.cursor.execute(query, config)
+        self.database.conn.commit()
+
+        return config
+
+
+
+
+
     def login(self, email, password):
 
         query = "SELECT password FROM Users WHERE email = '%s';" % (email)
