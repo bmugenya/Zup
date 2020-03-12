@@ -71,7 +71,7 @@ class analysis(Resource,Twitter):
         bar = self.tweet.plot_bar(topic,num_tweets)
         self.tweet.add_report(topic,num_tweets,email,pie,bar)
 
-        return Response(render_template("report.html",bar=bar,pie=pie))
+        return redirect(url_for('api_v1.reports'))
 
 
 
@@ -110,4 +110,6 @@ class remove(Resource,Twitter):
         self.tweet.remove_report(report_id)
 
         return redirect(url_for('api_v1.reports'))
+
+
 

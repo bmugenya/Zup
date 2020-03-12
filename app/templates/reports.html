@@ -24,7 +24,7 @@
         <ul class="nav navbar-nav navbar-right">
             {% if email %}
             <li><a>{{ email }}</a></li>
-            <li><a onclick="logout.submit()"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+            <li><a onclick="logout.submit()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             <form id="logout" action="{{ url_for('api_v1.logout') }}" method="post"></form>
             {% else %}
             <li><a href="{{ url_for('api_v1.addusers') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -52,12 +52,12 @@
             {% for report in reports %}
             <tr>
             <th>{{ report[0] }} </th>
-            <th>{{ report[1] }} </th>
-            <th>{{ report[2] }} Tweets</th>
+            <th>{{ report[2] }} </th>
+            <th>{{ report[1] }} Tweets</th>
             <th>{{ report[5] }} </th>
             <th>
 
-               <a href="{{ url_for('api_v1.report',report_id=1) }}">
+               <a href="{{ url_for('api_v1.report',report_id=report[0]) }}">
                  <button class="btn-success">View</button></a>
                   <form  method="post" action="{{url_for('api_v1.remove',report_id=report[0])}}">
                  <button type="submit" class="btn-danger">Delete</button>

@@ -1,6 +1,6 @@
 import psycopg2
 
-url = "dbname='tweet' user='postgres' host='localhost' port=5432 password='Boywonder47'"
+url = "dbname='da43n1slakcjkc' user='msqgxzgmcskvst' host='ec2-54-80-184-43.compute-1.amazonaws.com' port=5432 password='9281f925b1e2298e8d62812d9d4e430c1054db62e918c282d7039fa85b1759fa'"
 
 class database_setup(object):
 
@@ -29,12 +29,23 @@ class database_setup(object):
         self.cursor.execute("""CREATE TABLE IF NOT EXISTS Report (
             report_id SERIAL NOT NULL,
             num_tweet INT NOT NULL,
-            plot_graph VARCHAR(255) NOT NULL,
+            tweet VARCHAR(255) NOT NULL,
+            plot_bar VARCHAR(255) NOT NULL,
             plot_pie VARCHAR(255) NOT NULL,
             post_date DATE NOT NULL DEFAULT CURRENT_DATE,
             email VARCHAR(50) REFERENCES Users(email) NOT NULL,
             PRIMARY KEY (report_id)
             );""")
 
+
+        self.cursor.execute("""CREATE TABLE IF NOT EXISTS Config (
+            config_id SERIAL NOT NULL,
+            consumerKey TEXT NOT NULL,
+            consumerSecret TEXT NOT NULL,
+            accessToken TEXT NOT NULL,
+            accessSecret TEXT NOT NULL,
+            email VARCHAR(50) REFERENCES Users(email) NOT NULL,
+            PRIMARY KEY (config_id)
+            );""")
 
         self.conn.commit()
